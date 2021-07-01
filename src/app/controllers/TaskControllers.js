@@ -1,4 +1,4 @@
-const todos = require("../Models/todos");
+const todos = require("../models/todos");
 //Post admin/create-product-type
 class taskController {
   async createTask(req, res, next) {
