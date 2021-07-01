@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const Todos = new Schema(
+const Tasks = new Schema(
   {
     title: { type: String, require: true },
     subTitle: { type: String, require: true },
@@ -19,4 +19,4 @@ const Todos = new Schema(
 //    deletedAt : true,
 //  });
 
-module.exports = mongoose.model("Todos", Todos);
+module.exports = mongoose.model("tasks", Tasks);
