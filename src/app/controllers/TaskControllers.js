@@ -48,5 +48,24 @@ class taskController {
       });
     }
   }
+  async doneTask(req, res, next) {
+    try {
+      var _id = req.body.idTask;
+      var result = await todos.findOneAndUpdate(
+        _id,
+        { status: "DONE" },
+        { new: true }
+      );
+      res.status(200).send({
+        data: result,
+        error: "null",
+      });
+    } catch (error) {
+      res.status(500).send({
+        data: "",
+        error: error,
+      });
+    }
+  }
 }
 module.exports = new taskController();
