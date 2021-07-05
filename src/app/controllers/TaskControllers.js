@@ -45,7 +45,7 @@ class taskController {
   }
   async deleteTask(req, res, next) {
     try {
-      var _id = req.body.idTask;
+      var _id = req.body._id;
       var result = await todos.findOneAndUpdate(
         _id,
         { status: "DELETED" },
@@ -64,7 +64,7 @@ class taskController {
   }
   async doneTask(req, res, next) {
     try {
-      var _id = req.body.idTask;
+      var _id = req.body._id;
       var result = await todos.findOneAndUpdate(
         _id,
         { status: "DONE" },
