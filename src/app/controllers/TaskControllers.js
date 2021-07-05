@@ -65,6 +65,8 @@ class taskController {
   async doneTask(req, res, next) {
     try {
       var id = req.body._id;
+      console.log(req.body);
+      console.log("body truyen vao " + id);
       var result = await todos.findOneAndUpdate(
         { _id: id },
         { status: "DONE" },
