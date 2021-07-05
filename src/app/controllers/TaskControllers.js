@@ -45,9 +45,9 @@ class taskController {
   }
   async deleteTask(req, res, next) {
     try {
-      var _id = req.body._id;
+      var id = req.body._id;
       var result = await todos.findOneAndUpdate(
-        _id,
+        { _id: id },
         { status: "DELETED" },
         { new: true }
       );
@@ -64,9 +64,9 @@ class taskController {
   }
   async doneTask(req, res, next) {
     try {
-      var _id = req.body._id;
+      var id = req.body._id;
       var result = await todos.findOneAndUpdate(
-        _id,
+        { _id: id },
         { status: "DONE" },
         { new: true }
       );
@@ -83,14 +83,12 @@ class taskController {
   }
   async editTask(req, res, next) {
     try {
-      var _id = req.params.id;
+      var id = req.params.id;
       var update = { title: req.body.title, subTitle: req.body.subTitle };
 
-      var result = await todos.findOneAndUpdate(
-        _id,
-        update,
-        { new: true }
-      );
+      var result = await todos.findOneAndUpdate({ _id: id }, update, {
+        new: true,
+      });
       res.status(200).send({
         data: result,
         error: "null",
